@@ -12,11 +12,15 @@ public class Coin_moveset : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveVector;
 
+    private void Awake()
+    {
+        motion_is_finished = false;
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        motion_is_finished = false;
+        
     }
 
     void Update()
@@ -31,6 +35,7 @@ public class Coin_moveset : MonoBehaviour
         else if (!motion_is_finished && time <= 0) 
         { 
             motion_is_finished = true;
+            Scene_1_buttons_manager.button_activated = true;
         }
     }
 }

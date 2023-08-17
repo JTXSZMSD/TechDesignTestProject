@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Buddy_moveset : MonoBehaviour
 {
-    public float speed;
+    private float speed;
     
 
     private Rigidbody2D rb;
@@ -15,15 +15,13 @@ public class Buddy_moveset : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        speed = 2f;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
             moveVector.x = -1;
             moveVector.y = 0;
             rb.MovePosition(rb.position + moveVector * speed * Time.deltaTime);
-            
-        
     }
 }
